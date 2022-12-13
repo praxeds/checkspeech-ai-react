@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import $ from "jquery";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -33,7 +32,7 @@ export default function NavbarSection() {
     useEffect(() => {
         const openToggle = document.querySelector('.nav-toggle');
         const closeToggle = document.querySelector('.close-toggle');
-        var tl = gsap.timeline({ defaults: { duration: 0.7, ease: 'expo.inOut' } });
+        let tl = gsap.timeline({ defaults: { duration: 0.7, ease: 'expo.inOut' } });
         openToggle.addEventListener('click', () => {
             if (tl.reversed()) {
                 tl.play();
@@ -81,7 +80,6 @@ export default function NavbarSection() {
                     <li><a href="https://instagram.com/" target="_blank"><BsInstagram /></a></li>
                 </ul>
             </nav>
-            <div className="scrollable-area"></div>
         </div>
     );
 }

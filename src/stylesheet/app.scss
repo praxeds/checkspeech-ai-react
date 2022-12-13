@@ -87,7 +87,7 @@ progress::-moz-progress-bar {
 
 //Navbar
 .navbarSection {
-  @include size(100%, 5rem);
+  @include size(100%, 4rem);
   @include flex(row, space-between, center);
   position: fixed;
   padding: 0 2rem;
@@ -125,11 +125,6 @@ progress::-moz-progress-bar {
       }
     }
   }
-}
-
-//!!!!!!!Remove this element later!!!!!!!!
-.scrollable-area {
-  height: 300vh;
 }
 
 nav {
@@ -206,6 +201,61 @@ nav {
     }
   }
 }
+
+
+//Home Section
+.HomeSection {
+  height: 100vh;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(circle, #154d78, $rich-black 50%);
+
+
+  img {
+    // display: none;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    image-resolution: 300dpi;
+    image-rendering: optimizeQuality;
+    width: 60vh;
+  }
+
+  div.title-container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include text(40vh, $weight: 900);
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+
+    div.title-mask {
+      position: relative;
+      height: 70px;
+      overflow: hidden;
+      outline: 1px transparent;
+      color: white;
+    }
+    ul {
+      position: absolute;
+      top: 0;
+      left: 0;
+      list-style: none;
+      white-space: nowrap;
+    }
+    ul.title {
+      color: transparent;
+      -webkit-text-stroke: 0.4px white;
+    }
+  }
+}
+
+
 
 
 

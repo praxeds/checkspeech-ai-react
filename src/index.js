@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import ProgressBar from './components/ProgressBar';
 import NavbarSection from './components/Navbar';
+import HomeSection from './components/Home';
 
 import '../node_modules/normalize.css/normalize.css';
 import './stylesheet/css/fonts.css';
@@ -21,6 +22,7 @@ root.render(
   <React.StrictMode>
     <ProgressBar />
     <NavbarSection />
+    <HomeSection />
   </React.StrictMode>
 );
 

@@ -6,4 +6,8 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+@font-face {
+  font-family: "Monument";
+  src: url("https://res.cloudinary.com/holatresveces/raw/upload/v1573001944/MonumentExtended-Ultrabold_clzvv7.otf");
 }/*# sourceMappingURL=fonts.css.map */

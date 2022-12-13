@@ -43,7 +43,7 @@ progress::-moz-progress-bar {
 
 .navbarSection {
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -87,10 +87,6 @@ progress::-moz-progress-bar {
 }
 .navbarSection .nav-toggle svg:hover {
   stroke: #82ff14;
-}
-
-.scrollable-area {
-  height: 300vh;
 }
 
 nav {
@@ -174,6 +170,53 @@ nav .close-toggle svg {
 }
 nav .close-toggle svg:hover {
   stroke: #82ff14;
+}
+
+.HomeSection {
+  height: 100vh;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(circle, #154d78, #02090d 50%);
+}
+.HomeSection img {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  image-resolution: 300dpi;
+  image-rendering: optimizeQuality;
+  width: 60vh;
+}
+.HomeSection div.title-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40vh;
+  text-align: start;
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+.HomeSection div.title-container div.title-mask {
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  outline: 1px transparent;
+  color: white;
+}
+.HomeSection div.title-container ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+.HomeSection div.title-container ul.title {
+  color: transparent;
+  -webkit-text-stroke: 0.4px white;
 }
 
 @media (max-width: 991.98px) {
