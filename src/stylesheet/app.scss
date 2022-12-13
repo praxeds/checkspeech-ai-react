@@ -1,22 +1,155 @@
-//Navbar
-.main-tool-bar {
-  height: 80px;
-  background: #1c3f64;
-  text-align: center;
+//!Mixins
+@mixin flex($direction, $justify, $align, $wrap: nowrap, $gap: 0) {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: $gap;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin text($size, $align: start, $weight: normal) {
+  font-size: $size;
+  text-align: $align;
+  font-weight: $weight;
+}
+
+@mixin resetLink() {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin resetList() {
+  list-style: none;
+  padding: 0;
+}
+
+//Variables
+$accent-color: #3678db;
+$primary-color: #fff;
+$tertiary-color: #000;
+
+//Global
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  //This disables the blue highlight on mobile devices
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//Navbar
+.navbarSection {
+  @include size(100%, 5rem);
+  @include flex(row, space-between, center);
   position: fixed;
-  width: 100%;
+  padding: 0 2rem;
+  background: $accent-color;
   left: 0;
   top: 0;
+  color: $primary-color;
   transition: ease 1s;
-  &--scrolled {
-    height: 40px;
+
+  .navbar-brand {
+    @include flex(row, flex-start, center, $gap: 0.5rem);
+    @include resetLink();
+
+    >img {
+      @include size(auto, 2rem);
+    }
+
+    >p {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+  }
+
+  .nav-toggle {
+    cursor: pointer;
   }
 }
 
 .scrollable-area {
   height: 900vh;
+}
+
+
+nav {
+  @include flex(row, center, center);
+  @include size(100%, 1rem);
+  position: fixed;
+  right: -200vw;
+  background: $accent-color;
+
+  ul {
+    @include resetList();
+
+    a {
+      @include resetLink();
+      color: $primary-color;
+      @include text(1.5rem, $weight: 500);
+      position: relative;
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+
+  .close-toggle {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+
+    div::before,
+    div::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 4px;
+      background: $primary-color;
+      transition: background .4s ease;
+    }
+
+    div::before {
+      transform: rotate(-45deg);
+    }
+
+    div::after {
+      transform: rotate(45deg);
+    }
+
+    &:hover div::before,
+    &:hover div::after {
+      background: $tertiary-color;
+    }
+  }
+}
+
+
+
+
+//!Media Queries
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  nav {
+    .close-toggle {
+      top: 3rem;
+      right: 2rem;
+    }
+  }
 }

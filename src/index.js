@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import LocomotiveScroll from 'locomotive-scroll';
 
-import Navbar from './components/Navbar';
+import NavbarSection from './components/Navbar';
 
 
 import '../node_modules/normalize.css/normalize.css';
@@ -23,7 +23,7 @@ imagesLoaded.makeJQueryPlugin( $$ );
 const root = ReactDOM.createRoot($('#root')[0]);
 root.render(
   <React.StrictMode>
-    <Navbar />
+    <NavbarSection />
   </React.StrictMode>
 );
 
