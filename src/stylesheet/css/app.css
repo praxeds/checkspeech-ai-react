@@ -1,1 +1,21 @@
-/*# sourceMappingURL=app.css.map */
+.main-tool-bar {
+  height: 80px;
+  background: #1c3f64;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transition: ease 1s;
+}
+.main-tool-bar--scrolled {
+  height: 40px;
+}
+
+.scrollable-area {
+  height: 900vh;
+}/*# sourceMappingURL=app.css.map */
