@@ -10,6 +10,37 @@
   user-select: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 100%;
+  height: 15px;
+  border: none;
+  background: transparent;
+}
+
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to left, #82ff14);
+  background-attachment: fixed;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(to left, #82ff14);
+  background-attachment: fixed;
+}
+
 .navbarSection {
   width: 100%;
   height: 5rem;
@@ -21,10 +52,10 @@
   gap: 0;
   position: fixed;
   padding: 0 2rem;
-  background: #3678db;
+  background: #02090d;
   left: 0;
   top: 0;
-  color: #fff;
+  color: #ffffff;
   transition: ease 1s;
 }
 .navbarSection .navbar-brand {
@@ -48,42 +79,86 @@
 .navbarSection .nav-toggle {
   cursor: pointer;
 }
+.navbarSection .nav-toggle svg {
+  width: 2rem;
+  height: 2rem;
+  stroke: #ffffff;
+  transition: stroke ease 0.3s;
+}
+.navbarSection .nav-toggle svg:hover {
+  stroke: #82ff14;
+}
 
 .scrollable-area {
-  height: 900vh;
+  height: 300vh;
 }
 
 nav {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
   flex-wrap: nowrap;
-  gap: 0;
+  gap: 1rem;
   width: 100%;
   height: 1rem;
+  padding: 0 15vh;
   position: fixed;
   right: -200vw;
-  background: #3678db;
+  background: #02090d;
 }
-nav ul {
+nav ul.links {
   list-style: none;
   padding: 0;
 }
-nav ul a {
+nav ul.links li {
+  font-size: 12vh;
+  text-align: start;
+  font-weight: 700;
+}
+nav ul.links a {
+  position: relative;
   text-decoration: none;
   color: inherit;
-  color: #fff;
-  font-size: 1.5rem;
-  text-align: start;
-  font-weight: 500;
-  position: relative;
-  pointer-events: none;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: color ease 0.3s;
   opacity: 0;
 }
+nav ul.links a:hover {
+  color: #82ff14;
+}
+nav ul.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 0;
+  opacity: 0;
+  margin-bottom: 8vh;
+}
+nav ul.icons li {
+  list-style: none;
+  padding: 0;
+  font-size: 5vh;
+  text-align: start;
+  font-weight: normal;
+}
+nav ul.icons li a {
+  text-decoration: none;
+  color: inherit;
+  color: #ffffff;
+  transition: color ease 0.3s;
+}
+nav ul.icons li a:hover {
+  color: #82ff14;
+}
 nav .close-toggle {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
   top: 4rem;
   right: 4rem;
@@ -91,28 +166,53 @@ nav .close-toggle {
   cursor: pointer;
   pointer-events: none;
 }
-nav .close-toggle div::before,
-nav .close-toggle div::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 4px;
-  background: #fff;
-  transition: background 0.4s ease;
+nav .close-toggle svg {
+  width: 100%;
+  height: 100%;
+  stroke: #ffffff;
+  transition: stroke ease 0.3s;
 }
-nav .close-toggle div::before {
-  transform: rotate(-45deg);
-}
-nav .close-toggle div::after {
-  transform: rotate(45deg);
-}
-nav .close-toggle:hover div::before, nav .close-toggle:hover div::after {
-  background: #000;
+nav .close-toggle svg:hover {
+  stroke: #82ff14;
 }
 
+@media (max-width: 991.98px) {
+  nav {
+    padding: 0 8vh;
+  }
+  nav ul.links li {
+    font-size: 8vh;
+    text-align: start;
+    font-weight: 700;
+  }
+  nav ul.icons {
+    margin-bottom: 5vh;
+  }
+  nav ul.icons li {
+    font-size: 4vh;
+    text-align: start;
+    font-weight: normal;
+  }
+}
 @media (max-width: 767.98px) {
+  nav {
+    padding: 0 5vh;
+  }
+  nav ul.links li {
+    font-size: 6vh;
+    text-align: start;
+    font-weight: 700;
+  }
+  nav ul.icons {
+    margin-bottom: 10vh;
+  }
+  nav ul.icons li {
+    font-size: 4vh;
+    text-align: start;
+    font-weight: normal;
+  }
   nav .close-toggle {
-    top: 3rem;
-    right: 2rem;
+    top: 2.5rem;
+    right: 2.5rem;
   }
 }/*# sourceMappingURL=app.css.map */

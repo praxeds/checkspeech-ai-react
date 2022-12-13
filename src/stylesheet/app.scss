@@ -30,9 +30,13 @@
 }
 
 //Variables
-$accent-color: #3678db;
-$primary-color: #fff;
-$tertiary-color: #000;
+$blue-yonder: #4074AEff;
+$oxford-blue: #052642ff;
+$rich-blue: #041728;
+$rich-black: #02090Dff;
+$rich-midtone-green: #82ff14;
+$black: #000000ff;
+$white: #ffffff;
 
 //Global
 * {
@@ -49,16 +53,48 @@ $tertiary-color: #000;
   user-select: none;
 }
 
+//Removing Scrollbar
+::-webkit-scrollbar {
+  display: none;
+}
+
+//Progress Bar
+progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 15px;
+  border: none;
+  background: transparent;
+}
+
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to left, $rich-midtone-green);
+  background-attachment: fixed;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(to left, $rich-midtone-green);
+  background-attachment: fixed;
+}
+
 //Navbar
 .navbarSection {
   @include size(100%, 5rem);
   @include flex(row, space-between, center);
   position: fixed;
   padding: 0 2rem;
-  background: $accent-color;
+  background: $rich-black;
   left: 0;
   top: 0;
-  color: $primary-color;
+  color: $white;
   transition: ease 1s;
 
   .navbar-brand {
@@ -77,37 +113,80 @@ $tertiary-color: #000;
 
   .nav-toggle {
     cursor: pointer;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      stroke: $white;
+      transition: stroke ease 0.3s;
+
+      &:hover {
+        stroke: $rich-midtone-green;
+      }
+    }
   }
 }
 
+//!!!!!!!Remove this element later!!!!!!!!
 .scrollable-area {
-  height: 900vh;
+  height: 300vh;
 }
 
-
 nav {
-  @include flex(row, center, center);
+  @include flex(column, end, start, $gap: 1rem);
   @include size(100%, 1rem);
+  padding: 0 15vh;
   position: fixed;
   right: -200vw;
-  background: $accent-color;
+  background: $rich-black;
 
-  ul {
+  ul.links {
     @include resetList();
 
+    li {
+      @include text(12vh, $weight: 700);
+    }
+
     a {
-      @include resetLink();
-      color: $primary-color;
-      @include text(1.5rem, $weight: 500);
       position: relative;
-      pointer-events: none;
+      @include resetLink();
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      color: $white;
+      transition: color ease 0.3s;
       opacity: 0;
+
+      &:hover {
+        color: $rich-midtone-green;
+      }
+    }
+  }
+
+  ul.icons {
+    @include flex(row, start, center, $gap: 1rem);
+    padding: 0;
+    opacity: 0;
+    margin-bottom: 8vh;
+
+    li {
+      @include resetList();
+      @include text(5vh);
+
+      a {
+        @include resetLink();
+        color: $white;
+        transition: color ease 0.3s;
+
+        &:hover {
+          color: $rich-midtone-green;
+        }
+      }
     }
   }
 
   .close-toggle {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     position: absolute;
     top: 4rem;
     right: 4rem;
@@ -115,27 +194,15 @@ nav {
     cursor: pointer;
     pointer-events: none;
 
-    div::before,
-    div::after {
-      content: '';
-      position: absolute;
-      width: 30px;
-      height: 4px;
-      background: $primary-color;
-      transition: background .4s ease;
-    }
+    svg {
+      width: 100%;
+      height: 100%;
+      stroke: $white;
+      transition: stroke ease 0.3s;
 
-    div::before {
-      transform: rotate(-45deg);
-    }
-
-    div::after {
-      transform: rotate(45deg);
-    }
-
-    &:hover div::before,
-    &:hover div::after {
-      background: $tertiary-color;
+      &:hover {
+        stroke: $rich-midtone-green;
+      }
     }
   }
 }
@@ -144,12 +211,43 @@ nav {
 
 
 //!Media Queries
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  nav {
+    padding: 0 8vh;
+    ul.links {
+      li {
+        @include text(8vh, $weight: 700);
+      }
+    }
+    ul.icons {
+      margin-bottom: 5vh;
+      li {
+        @include text(4vh);
+      }
+    }
+  }
+}
+
+
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
   nav {
+    padding: 0 5vh;
+    ul.links {
+      li {
+        @include text(6vh, $weight: 700);
+      }
+    }
+    ul.icons {
+      margin-bottom: 10vh;
+      li {
+        @include text(4vh);
+      }
+    }
     .close-toggle {
-      top: 3rem;
-      right: 2rem;
+      top: 2.5rem;
+      right: 2.5rem;
     }
   }
 }

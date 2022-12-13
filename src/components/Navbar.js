@@ -8,7 +8,10 @@ import Navbar from 'react-bootstrap/Navbar';
 
 import logoImg from '../assets/static/logo.png';
 
-import { FaBehance, FaCodepen, FaFacebook, FaInstagram, FaTimes, FaBars } from "react-icons/fa";
+import { HiOutlineBars3 } from "react-icons/hi2";
+import { IoCloseOutline } from "react-icons/io5";
+import { BsInstagram } from "react-icons/bs";
+import { GrLinkedinOption, GrFacebookOption } from "react-icons/gr";
 
 export default function NavbarSection() {
     gsap.registerPlugin(ScrollTrigger);
@@ -28,16 +31,17 @@ export default function NavbarSection() {
     }, []);
 
     useEffect(() => {
-        const open = document.querySelector('.container');
+        const openToggle = document.querySelector('.nav-toggle');
         const closeToggle = document.querySelector('.close-toggle');
-        var tl = gsap.timeline({ defaults: { duration: 1, ease: 'expo.inOut' } });
-        open.addEventListener('click', () => {
+        var tl = gsap.timeline({ defaults: { duration: 0.7, ease: 'expo.inOut' } });
+        openToggle.addEventListener('click', () => {
             if (tl.reversed()) {
                 tl.play();
             } else {
                 tl.to('nav', { right: 0 })
                     .to('nav', { height: '100vh' }, '-=.1')
-                    .to('nav ul li a', { opacity: 1, pointerEvents: 'all', stagger: .2 }, '-=.5')
+                    .to('nav ul.links li a', { opacity: 1, pointerEvents: 'all', stagger: .2 }, '-=.5')
+                    .to('nav ul.icons', { opacity: 1, pointerEvents: 'all' }, "-=.5")
                     .to('.close-toggle', { opacity: 1, pointerEvents: 'all' }, "-=.5")
             }
         });
@@ -49,7 +53,7 @@ export default function NavbarSection() {
     return (
         <div>
             <Container className="navbarSection">
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="#">
                     <img
                         alt="Logo"
                         src={logoImg}
@@ -58,18 +62,23 @@ export default function NavbarSection() {
                     <p>CheckSpeech AI</p>
                 </Navbar.Brand>
                 <div class="nav-toggle">
-                    <FaBars />
+                    <HiOutlineBars3 />
                 </div>
             </Container>
             <nav>
                 <div class="close-toggle">
-                    <div></div>
+                    <IoCloseOutline />
                 </div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul className="links">
+                    <li><a href="#">Soluções</a></li>
+                    <li><a href="#">Clientes</a></li>
+                    <li><a href="#">Preços</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <ul className="icons">
+                    <li><a href="https://linkedin.com/" target="_blank"><GrLinkedinOption /></a></li>
+                    <li><a href="https://facebook.com/" target="_blank"><GrFacebookOption /></a></li>
+                    <li><a href="https://instagram.com/" target="_blank"><BsInstagram /></a></li>
                 </ul>
             </nav>
             <div className="scrollable-area"></div>
