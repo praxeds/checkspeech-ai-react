@@ -69,10 +69,10 @@ export default function NavbarSection() {
                     <IoCloseOutline />
                 </div>
                 <ul className="links">
-                    <li><a href="#">Soluções</a></li>
-                    <li><a href="#">Clientes</a></li>
-                    <li><a href="#">Preços</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Clients</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
                 <ul className="icons">
                     <li><a href="https://linkedin.com/" target="_blank"><GrLinkedinOption /></a></li>
