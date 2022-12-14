@@ -34,7 +34,7 @@ $blue-yonder: #4074AEff;
 $oxford-blue: #052642ff;
 $rich-blue: #041728;
 $rich-black: #02090Dff;
-$rich-midtone-green: #82ff14;
+$bright-cyan: #2decf4;
 $black: #000000ff;
 $white: #ffffff;
 
@@ -43,6 +43,7 @@ $white: #ffffff;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   margin: 0;
+  padding: 0;
   //This disables the blue highlight on mobile devices
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -51,6 +52,10 @@ $white: #ffffff;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+body {
+  overflow: hidden;
 }
 
 //Removing Scrollbar
@@ -76,12 +81,12 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: linear-gradient(to left, $rich-midtone-green);
+  background: linear-gradient(to left, $bright-cyan);
   background-attachment: fixed;
 }
 
 progress::-moz-progress-bar {
-  background: linear-gradient(to left, $rich-midtone-green);
+  background: linear-gradient(to left, $bright-cyan);
   background-attachment: fixed;
 }
 
@@ -121,7 +126,7 @@ progress::-moz-progress-bar {
       transition: stroke ease 0.3s;
 
       &:hover {
-        stroke: $rich-midtone-green;
+        stroke: $bright-cyan;
       }
     }
   }
@@ -152,7 +157,7 @@ nav {
       opacity: 0;
 
       &:hover {
-        color: $rich-midtone-green;
+        color: $bright-cyan;
       }
     }
   }
@@ -173,7 +178,7 @@ nav {
         transition: color ease 0.3s;
 
         &:hover {
-          color: $rich-midtone-green;
+          color: $bright-cyan;
         }
       }
     }
@@ -196,7 +201,7 @@ nav {
       transition: stroke ease 0.3s;
 
       &:hover {
-        stroke: $rich-midtone-green;
+        stroke: $bright-cyan;
       }
     }
   }
@@ -213,51 +218,46 @@ nav {
 
 
   img {
-    // display: none;
     position: absolute;
+    z-index: 3;
     top: 60%;
     left: 50%;
-    z-index: 3;
     transform: translate(-50%, -50%);
     image-resolution: 300dpi;
     image-rendering: optimizeQuality;
     width: 60vh;
   }
 
-  div.title-container {
+  .title-container {
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    @include text(40vh, $weight: 900);
-    font-family: "Montserrat", sans-serif;
-    text-transform: uppercase;
-
-    div.title-mask {
-      position: relative;
-      height: 70px;
-      overflow: hidden;
-      outline: 1px transparent;
-      color: white;
-    }
-    ul {
-      position: absolute;
-      top: 0;
-      left: 0;
-      list-style: none;
-      white-space: nowrap;
-    }
-    ul.title {
-      color: transparent;
-      -webkit-text-stroke: 0.4px white;
+    height: 40vh;
+    overflow: hidden;
+    outline: 1px transparent;
+    color: $white;
+    .title-mask h1 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 445%);
+    }    
+  }
+  div.title {
+    color: transparent;
+    -webkit-text-stroke: 1px $white;
+    h1 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
+  h1 {
+    @include text(12vw, $weight: 900);
+    text-transform: uppercase;
+    line-height:10.1vh;
+    white-space: nowrap;
+    position: absolute;
+    margin: 0;
+  }
 }
-
-
-
-
 
 
 //!Media Queries
@@ -265,13 +265,16 @@ nav {
 @media (max-width: 991.98px) {
   nav {
     padding: 0 8vh;
+
     ul.links {
       li {
         @include text(8vh, $weight: 700);
       }
     }
+
     ul.icons {
       margin-bottom: 5vh;
+
       li {
         @include text(4vh);
       }
@@ -284,17 +287,21 @@ nav {
 @media (max-width: 767.98px) {
   nav {
     padding: 0 5vh;
+
     ul.links {
       li {
         @include text(6vh, $weight: 700);
       }
     }
+
     ul.icons {
       margin-bottom: 10vh;
+
       li {
         @include text(4vh);
       }
     }
+
     .close-toggle {
       top: 2.5rem;
       right: 2.5rem;

@@ -9,13 +9,13 @@ import headImg from '../assets/static/home-section-head.png';
 
 export default function HomeSection() {
     useEffect(() => {
-        const container = document.querySelector(".title-mask");
+        const container = $(".title-container");
         document.body.addEventListener("mousemove", e => {
-            const y = e.clientY - 35;
+            const y = e.clientY - 100;
             gsap.to(container, {
                 y: y
             });
-            gsap.to(".menu-mask", {
+            gsap.to(".title-mask", {
                 y: -y
             });
         });
@@ -23,17 +23,18 @@ export default function HomeSection() {
     return (
         <Container fluid className="HomeSection">
             <img src={headImg} alt="head" />
-
-            <div className='title-container'>
-                <ul class="title">
-                    <li>CheckSpeech AI | Conversão e Interpretação de Falas Inteligente</li>
-                </ul>
-                <div class="title-mask">
-                    <ul class="menu-mask">
-                        <li>CheckSpeech AI | Conversão e Interpretação de Falas Inteligente</li>
-                    </ul>
+                <div className="title">
+                    <h1>CheckSpeech AI</h1>
+                </div>
+            <div className="title-container">
+                <div className="title-mask">
+                        <h1>CheckSpeech AI</h1>
                 </div>
             </div>
+
+
+
+
         </Container>
     );
 }

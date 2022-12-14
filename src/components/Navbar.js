@@ -60,12 +60,12 @@ export default function NavbarSection() {
                     />{' '}
                     <p>CheckSpeech AI</p>
                 </Navbar.Brand>
-                <div class="nav-toggle">
+                <div className="nav-toggle">
                     <HiOutlineBars3 />
                 </div>
             </Container>
             <nav>
-                <div class="close-toggle">
+                <div className="close-toggle">
                     <IoCloseOutline />
                 </div>
                 <ul className="links">

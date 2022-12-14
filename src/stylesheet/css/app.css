@@ -2,12 +2,17 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   margin: 0;
+  padding: 0;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+body {
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -32,12 +37,12 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: linear-gradient(to left, #82ff14);
+  background: linear-gradient(to left, #2decf4);
   background-attachment: fixed;
 }
 
 progress::-moz-progress-bar {
-  background: linear-gradient(to left, #82ff14);
+  background: linear-gradient(to left, #2decf4);
   background-attachment: fixed;
 }
 
@@ -86,7 +91,7 @@ progress::-moz-progress-bar {
   transition: stroke ease 0.3s;
 }
 .navbarSection .nav-toggle svg:hover {
-  stroke: #82ff14;
+  stroke: #2decf4;
 }
 
 nav {
@@ -123,7 +128,7 @@ nav ul.links a {
   opacity: 0;
 }
 nav ul.links a:hover {
-  color: #82ff14;
+  color: #2decf4;
 }
 nav ul.icons {
   display: flex;
@@ -150,7 +155,7 @@ nav ul.icons li a {
   transition: color ease 0.3s;
 }
 nav ul.icons li a:hover {
-  color: #82ff14;
+  color: #2decf4;
 }
 nav .close-toggle {
   width: 3rem;
@@ -169,7 +174,7 @@ nav .close-toggle svg {
   transition: stroke ease 0.3s;
 }
 nav .close-toggle svg:hover {
-  stroke: #82ff14;
+  stroke: #2decf4;
 }
 
 .HomeSection {
@@ -181,42 +186,44 @@ nav .close-toggle svg:hover {
 }
 .HomeSection img {
   position: absolute;
+  z-index: 3;
   top: 60%;
   left: 50%;
-  z-index: 3;
   transform: translate(-50%, -50%);
   image-resolution: 300dpi;
   image-rendering: optimizeQuality;
   width: 60vh;
 }
-.HomeSection div.title-container {
+.HomeSection .title-container {
   position: relative;
+  height: 40vh;
+  overflow: hidden;
+  outline: 1px transparent;
+  color: #ffffff;
+}
+.HomeSection .title-container .title-mask h1 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 445%);
+}
+.HomeSection div.title {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+.HomeSection div.title h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 40vh;
+}
+.HomeSection h1 {
+  font-size: 12vw;
   text-align: start;
   font-weight: 900;
-  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
-}
-.HomeSection div.title-container div.title-mask {
-  position: relative;
-  height: 70px;
-  overflow: hidden;
-  outline: 1px transparent;
-  color: white;
-}
-.HomeSection div.title-container ul {
-  position: absolute;
-  top: 0;
-  left: 0;
-  list-style: none;
+  line-height: 10.1vh;
   white-space: nowrap;
-}
-.HomeSection div.title-container ul.title {
-  color: transparent;
-  -webkit-text-stroke: 0.4px white;
+  position: absolute;
+  margin: 0;
 }
 
 @media (max-width: 991.98px) {
