@@ -280,6 +280,15 @@ nav {
       }
     }
   }
+
+  .HomeSection {
+    img {
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40vh;
+    }
+  }
 }
 
 
@@ -305,6 +314,15 @@ nav {
     .close-toggle {
       top: 2.5rem;
       right: 2.5rem;
+    }
+  }
+
+  .HomeSection {
+    img {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32vh;
     }
   }
 }

@@ -243,6 +243,12 @@ nav .close-toggle svg:hover {
     text-align: start;
     font-weight: normal;
   }
+  .HomeSection img {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vh;
+  }
 }
 @media (max-width: 767.98px) {
   nav {
@@ -264,5 +270,11 @@ nav .close-toggle svg:hover {
   nav .close-toggle {
     top: 2.5rem;
     right: 2.5rem;
+  }
+  .HomeSection img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32vh;
   }
 }/*# sourceMappingURL=app.css.map */

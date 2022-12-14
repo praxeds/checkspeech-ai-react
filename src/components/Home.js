@@ -31,10 +31,6 @@ export default function HomeSection() {
                         <h1>CheckSpeech AI</h1>
                 </div>
             </div>
-
-
-
-
         </Container>
     );
 }
